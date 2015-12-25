@@ -957,12 +957,12 @@ void PointView::drawPoints(const PointArrayModel& points, VisMode visMode,
                 // Lighting
                 // light0
                 GLfloat lightPos[] = {0, 0, 0, 1};
-                GLfloat whiteCol[] = {0.01, 0.01, 0.01, 1};
+                GLfloat whiteCol[] = {0.005, 0.005, 0.005, 1};
                 glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
                 glLightfv(GL_LIGHT0, GL_DIFFUSE, whiteCol);
                 glEnable(GL_LIGHT0);
                 // whole-scene ambient intensity scaling
-                GLfloat ambientCol[] = {0.2, 0.2, 0.2, 1};
+                GLfloat ambientCol[] = {0.5, 0.5, 0.5, 1};
                 glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientCol);
                 // whole-scene diffuse intensity
                 //GLfloat diffuseCol[] = {0.05, 0.05, 0.05, 1};
