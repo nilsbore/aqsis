@@ -292,6 +292,7 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/include"
 	"${PROJECT_BINARY_DIR}/include"
 	${Boost_INCLUDE_DIRS}
+	/usr/include/
 )
 
 # Thirdparty libs
@@ -325,6 +326,7 @@ if(AQSIS_USE_QT)
 	add_subdirectory(tools/eqsl)
 	add_subdirectory(tools/piqsl)
 	add_subdirectory(tools/ptview)
+	add_subdirectory(tools/surfel_viewer)
 endif()
 
 # Build displays

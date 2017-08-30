@@ -53,6 +53,9 @@
 
 #include <aqsis/version.h>
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
 namespace Aqsis {
 
 //----------------------------------------------------------------------
@@ -809,6 +812,10 @@ void PointView::keyPressEvent(QKeyEvent *event)
         m_camera.setCenter(exr2qt(newPos));
         updateGL();
     }
+    else if (event->key() == Qt::Key_F)
+    {
+        drawImage(QString("/home/nbore/Data/test.dummy"));
+    }
     else
         event->ignore();
 }
@@ -909,6 +916,14 @@ void PointView::drawCursor(const V3f& p) const
     glPopAttrib();
 }
 
+void PointView::drawImage(const QString& fileName)
+{
+    QImage buffer = grabFrameBuffer(false);
+    cv::Mat image(buffer.height(), buffer.width(), CV_8UC4, buffer.bits());
+    boost::filesystem::path cloud_path(fileName.toStdString());
+    boost::filesystem::path image_path = cloud_path.parent_path() / "surfel_image.png";
+    cv::imwrite(image_path.string(), image);
+}
 
 /// Draw point cloud using OpenGL
 void PointView::drawPoints(const PointArrayModel& points, VisMode visMode,

@@ -7,6 +7,8 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
+find_package(OpenCV REQUIRED)
+
 if(QT_FOUND AND OPENGL_FOUND)
 	include_directories(${AQSIS_OPENEXR_INCLUDE_DIR} "${AQSIS_OPENEXR_INCLUDE_DIR}/OpenEXR" ${QT_INCLUDES}
 						${OPENGL_INCLUDE_DIR})
@@ -29,7 +31,7 @@ if(QT_FOUND AND OPENGL_FOUND)
 
 	set(surfel_viewer_link_libraries ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY}
 			${QT_QTOPENGL_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY}
-			${OPENGL_gl_LIBRARY} ${pointrender_libs} aqsis_util ${PCL_LIBRARIES})
+                        ${OPENGL_gl_LIBRARY} ${pointrender_libs} aqsis_util ${PCL_LIBRARIES} ${OpenCV_LIBS})
 
 	if(MINGW)
 		list(APPEND surfel_viewer_link_libraries pthread)

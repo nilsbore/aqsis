@@ -163,6 +163,7 @@ class PointView : public QGLWidget
     private:
         static void drawAxes();
         void drawCursor(const V3f& P) const;
+        void drawImage(const QString& fileName);
         static void drawPoints(const PointArrayModel& points, VisMode visMode,
                                bool useLighting);
 

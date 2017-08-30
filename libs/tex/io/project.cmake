@@ -33,7 +33,7 @@ set(io_hdrs
 	zinputfile.h
 )
 make_absolute(io_hdrs ${io_SOURCE_DIR})
-include_directories(${io_SOURCE_DIR})
+include_directories(${io_SOURCE_DIR} /usr/include)
 
 set(io_test_srcs
 	magicnumber_test.cpp

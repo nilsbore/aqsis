@@ -18,6 +18,8 @@ set(tex_hdrs ${buffers_hdrs} ${filtering_hdrs}
 )
 source_group("Header files" FILES ${tex_hdrs})
 
+include_directories(/use/include)
+
 set(linklibs ${io_linklibs})
 if(AQSIS_USE_OPENEXR)
     include_directories(${AQSIS_OPENEXR_INCLUDE_DIR} "${AQSIS_OPENEXR_INCLUDE_DIR}/OpenEXR")
